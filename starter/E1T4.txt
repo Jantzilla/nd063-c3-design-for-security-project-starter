@@ -2,4 +2,8 @@ Based on the architecture diagram, and the steps you have taken so far to upload
 
 # Poor practice 1
 
+The first poor practice that has been implemented in the initial infrastructure design is the unutilized/misused private subnet. The application ec2 instance (Web Service Instance) should be deployed within the private subnet rather than the public subnet as having the app instance directly exposed to the internet is unnecessary and broadens the web application's attack surface.
+
 # Poor practice 2
+
+The second poor practice that exist within the initial infrastructure is the lack of private endpoint usage for access to the s3 bucket. The app instance unnecessarily accesses the "Free Recipes" bucket through the public facing AWS API rather than through a private endpoint which keeps access private to the VPC and eliminates the need for another internet gateway.

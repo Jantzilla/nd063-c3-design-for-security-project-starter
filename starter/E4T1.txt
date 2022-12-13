@@ -1,5 +1,9 @@
-
-
 # Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
 
+The first change that can be made to prevent ssh brute force is to explicitly prevent access to the web service instance on port 22 (ssh). This can be done by removing  rules that allow connections on all or port 22 specifically within the WebAppSG security group. The only necessary open port that this instance will need to listen on is port 5000.
+
+Another way that the environment could be configured to prevent ssh brute force would be to only allow ingress from the application load balancer. This can be done by further restricting connections on port 22 exclusively to the AppLoadBalancerSG security group. After all, the application instance doesn't need to be directly accessible from the internet anyway.
+
 # Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+
+One way to prevent access to sensitive data within the secret recipes bucket would be to create an IAM role or policy that either explicitly prevents access to the bucket from the two instances or more preferably, one that explicitly allows access associated with the privileged business user - the only entity that requires access to the secret recipes bucket.

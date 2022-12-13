@@ -1,3 +1,7 @@
 # Describe GuardDuty findings that were detected related to the brute force attack
 
+Shortly after initiating the "Brute Force" attack, AWS GuarDuty was able to accurately identify and categorize the simulated exploit. Based on the ssh activity, GuardDuty generated one finding type of "UnauthorizedAccess:EC2/SSHBruteForce". The finding also included a brief description of brute force as an attack "..used to gain unauthorized access to your instance by guessing SSH password." The finding also included the resource ID of the attacking instance and the IP address of the attack target.
+
 # Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+
+GuardDuty can detect "UnauthorizedAccess:EC2/SSHBruteForce" and generate findings on this vulnerability by monitoring the network traffic of a given AWS account on port 22 using the VPC flow logs as it's data source.

@@ -2,12 +2,24 @@
 
 ## Scan infrastructure as code templates
 
+I would use "CloudSploit" to scan for IaC vulnerabilities.
+
 ### Example vulnerability
+
+An example vulnerability that CloudSploit might expose is the inclusion of an overly permissive security group in a cloud formation template. CloudSploit would be able to flag this as a potential exploit before the template yaml file is deployed.
 
 ##Scan AMI’s or containers for OS vulnerabilities
 
+"Amazon ECR" is the tool I would incorporate for AMI/container OS vulnerability scanning
+
 ### Example vulnerability
+
+Amazon ECR can be used to identify previously documented exploitable vulnerabilities in unpatched OS versions. Additionally, ECR can flag potential misconfigurations or situations where further "security hardening" can be applied.
 
 ##Scan an AWS environment for cloud configuration vulnerabilities
 
+"AWS Inspector" would be used as an AWS environment cloud configuration vulnerability scanner
+
 ### Example vulnerability
+
+AWS Inspector can be used to identify many broad AWS specific vulnerabilities such as when the root account doesn't have multi-factor authentication enabled (MFA).
